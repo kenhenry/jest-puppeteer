@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.0",
+    "jest": "^22.4.4",
+    "jest-puppeteer": "^3.9.0",
+    "prettier": "^1.9.2",
+    "puppeteer": "^0.13.0",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "jest-html-reporter": "^2.4.3"
+  }
+}
