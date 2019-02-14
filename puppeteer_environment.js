@@ -23,10 +23,11 @@ class PuppeteerEnvironment extends NodeEnvironment {
     this.global.__BROWSER__ = await puppeteer.connect({
       browserWSEndpoint: wsEndpoint,
     })
+
     global.__BROWSER_GLOBAL__ = this.global.__BROWSER__
   }
 
-  //调试暂时不关闭
+
   async teardown() {
     console.log(chalk.yellow('Teardown Test Environment.'))
     await super.teardown()

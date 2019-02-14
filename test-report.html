@@ -121,21 +121,25 @@ header {
 	font-size: 1rem;
 	padding: 0 0.5rem;
 }
-</style></head><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Start: 2019-01-30 14:19:21</div><div id="summary">
-				5 tests --
-				2 passed /
-				1 failed /
+</style></head><header><h1 id="title">Test Report</h1></header><div id="metadata-container"><div id="timestamp">Start: 2019-02-14 15:01:41</div><div id="summary">
+				8 tests --
+				4 passed /
+				2 failed /
 				2 pending
-			</div></div><div class="suite-info"><div class="suite-path">E:\jest-puppeteer-example-master\__tests__\sum.test.js</div><div class="suite-time">0.759s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">test-suit-sum</td><td class="test">A adds 1 + 2 to equal 3<div class="failureMessages"/></td><td class="result">passed in 0.006s</td></tr><tr class="failed"><td class="suite">test-suit-sum</td><td class="test">B adds 1 + 2 to equal 3<div class="failureMessages"><pre class="failureMsg">Error: expect(received).toBe(expected) // Object.is equality
+			</div></div><div class="suite-info"><div class="suite-path">E:\jest-puppeteer-example-master\__tests__\sum.test.js</div><div class="suite-time">1.655s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">test-suit-sum</td><td class="test">A adds 1 + 2 to equal 3<div class="failureMessages"/></td><td class="result">passed in 0.003s</td></tr><tr class="failed"><td class="suite">test-suit-sum</td><td class="test">B adds 1 + 2 to equal 3<div class="failureMessages"><pre class="failureMsg">Error: expect(received).toBe(expected) // Object.is equality
 
-Expected value to be:
-  2
-Received:
-  3
+Expected: 2
+Received: 3
     at Object.toBe (E:\jest-puppeteer-example-master\__tests__\sum.test.js:9:23)
-    at Object.asyncFn (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\jasmine_async.js:82:37)
-    at resolve (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\queue_runner.js:52:12)
+    at Object.asyncJestTest (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\jasmineAsyncInstall.js:102:37)
+    at resolve (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\queueRunner.js:41:12)
     at new Promise (&lt;anonymous&gt;)
-    at mapper (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\queue_runner.js:39:19)
-    at promise.then (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\queue_runner.js:73:82)
-    at process.internalTickCallback (internal/process/next_tick.js:77:7)</pre></div></td><td class="result">failed</td></tr><tr class="passed"><td class="suite">test-suit-sum</td><td class="test">C adds 1 + 2 to equal 3<div class="failureMessages"/></td><td class="result">passed in 0.001s</td></tr></table><div class="suite-info"><div class="suite-path">E:\jest-puppeteer-example-master\__tests__\char.test.js</div><div class="suite-time">3.096s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="pending"><td class="suite">Walmart shopping cart</td><td class="test">shows the correct product<div class="failureMessages"/></td><td class="result">pending</td></tr><tr class="pending"><td class="suite">Walmart shopping cart</td><td class="test">adds the product to the cart<div class="failureMessages"/></td><td class="result">pending</td></tr></table></html>
+    at mapper (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\queueRunner.js:26:19)
+    at promise.then (E:\jest-puppeteer-example-master\node_modules\jest-jasmine2\build\queueRunner.js:71:41)
+    at process.internalTickCallback (internal/process/next_tick.js:77:7)</pre></div></td><td class="result">failed</td></tr><tr class="passed"><td class="suite">test-suit-sum</td><td class="test">C adds 1 + 2 to equal 3<div class="failureMessages"/></td><td class="result">passed in 0.001s</td></tr></table><div class="suite-info"><div class="suite-path">E:\jest-puppeteer-example-master\__tests__\char.test.js</div><div class="suite-time">3.418s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="pending"><td class="suite">Walmart shopping cart</td><td class="test">shows the correct product<div class="failureMessages"/></td><td class="result">pending</td></tr><tr class="pending"><td class="suite">Walmart shopping cart</td><td class="test">adds the product to the cart<div class="failureMessages"/></td><td class="result">pending</td></tr></table><div class="suite-info"><div class="suite-path">E:\jest-puppeteer-example-master\__tests__\gy.test.js</div><div class="suite-time warn">73.516s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">管易</td><td class="test">1登录<div class="failureMessages"/></td><td class="result">passed in 5.576s</td></tr><tr class="passed"><td class="suite">管易</td><td class="test">2打开订单查询<div class="failureMessages"/></td><td class="result">passed in 2.204s</td></tr><tr class="failed"><td class="suite">管易</td><td class="test">3新增订单<div class="failureMessages"><pre class="failureMsg">TimeoutError: waiting for selector "span.x-tab-close-btn" failed: timeout 30000ms exceeded
+    at new WaitTask (E:\jest-puppeteer-example-master\node_modules\_puppeteer@1.12.2@puppeteer\lib\DOMWorld.js:554:28)
+    at DOMWorld._waitForSelectorOrXPath (E:\jest-puppeteer-example-master\node_modules\_puppeteer@1.12.2@puppeteer\lib\DOMWorld.js:483:22)
+    at DOMWorld.waitForSelector (E:\jest-puppeteer-example-master\node_modules\_puppeteer@1.12.2@puppeteer\lib\DOMWorld.js:437:17)
+    at Frame.waitForSelector (E:\jest-puppeteer-example-master\node_modules\_puppeteer@1.12.2@puppeteer\lib\FrameManager.js:606:47)
+    at Frame.&lt;anonymous&gt; (E:\jest-puppeteer-example-master\node_modules\_puppeteer@1.12.2@puppeteer\lib\helper.js:109:23)
+    at Object.waitForSelector (E:\jest-puppeteer-example-master\__tests__\gy.test.js:130:20)</pre></div></td><td class="result">failed</td></tr></table></html>

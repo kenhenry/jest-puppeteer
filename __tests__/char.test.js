@@ -13,7 +13,7 @@ beforeAll(async () => {
   await page.tracing.start({path: 'trace.json'})
 })
 
-describe('Walmart shopping cart', () => {
+xdescribe('Walmart shopping cart', () => {
   xtest('shows the correct product', async () => {
     await page.setViewport({ width: 1280, height: 800 })
     await page.goto('https://www.walmart.com/ip/Super-Mario-Odyssey-Nintendo-Switch/56011600')

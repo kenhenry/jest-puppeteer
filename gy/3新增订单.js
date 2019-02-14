@@ -1,59 +1,27 @@
-const puppeteer = require('puppeteer')
-let browser
-let page
+const fs = require("fs");
+const puppeteer = require('puppeteer');
+var wsEndpoint = fs.readFileSync('wsEndpoint.txt','utf-8');
 
-beforeAll(async () => {
-  // browser = await puppeteer.launch({headless:false,args: ['--start-maximized', '--window-size=1920,1080']})
-  browser = global.__BROWSER__;
-  // page = await browser.newPage()
-  page = (await browser.pages())[0];
-  await page.setViewport({ width: 1920, height: 1080 });
-  // await page.tracing.start({path: 'trace.json'})
-})
+(async () => {
+    const browser = await puppeteer.connect({'browserWSEndpoint':wsEndpoint });
+    const page = (await browser.pages())[0];
+    await page.setViewport({ width: 1920, height: 1080 });
+    console.log((await browser.pages()).length);
+    console.log((await page.url()));
+    console.log(await page.title());
 
-describe('管易', () => {
-
-  test('1登录', async () => {
-    // page = await global.__BROWSER__.newPage();
-    await page.goto('http://demo.guanyierp.com/index');
-    await page.waitForSelector('a[data-target="loginUsername"]');
-    await page.click('a[data-target="loginUsername"]') ;//租户登录
-    await page.type('#tenantCode', 'k3cloudjccs01');
-    await page.type('#code', 'admin');
-    await page.type('#pwd', '9TI0veT$');
-    await page.click('#loginBtn') ;//登录
-
-  },30000)
-
-  test('2打开订单查询', async () => {
-    await page.waitForSelector('span[title="订单管理"]');
-    await page.click('span[title="订单管理"]');
-    await page.waitForSelector('a[title="订单管理"]');
-    await page.click('a[title="订单管理"]');
-    await page.waitForSelector('a[title="订单查询"]');
-    await page.click('a[title="订单查询"]');
-    await page.mouse.click(800, 500); //鼠标 离开 菜单栏悬浮状态
-
-    // await page.waitForSelector('iframe[name="panel10006602"]'); //订单查询界面
-    //
-    // await page.waitFor(5000);
-    // const frame_check = await page.frames().find(frame_check => frame_check.name() === 'panel10006602');
-    // // await page.waitFor(3000);
-    // await frame_check.waitForSelector('#addBtn');
-    // await frame_check.click('#addBtn'); //新增订单
-
-  }, 10000)
-
-  test('3新增订单', async () => {
-    await page.waitFor(10000);
-    console.log(await page.title())
     await page.waitForSelector('iframe[name="panel10006602"]'); //订单查询界面
 
-    // await page.waitFor(3000);
-    const frame_check = await page.frames().find(frame_check => frame_check.name() === 'panel10006602');
-    // await page.waitFor(3000);
-    await frame_check.waitForSelector('#addBtn');
+    const frame_check = page.frames().find(frame_check => frame_check.name() === 'panel10006602');
+
     await frame_check.click('#addBtn'); //新增订单
+
+    /*await page.waitFor(3000);
+    await page.waitForSelector('iframe[name="panel10006602edit"]');
+    const frame_edit = page.frames().find(frame => frame.name() === 'panel10006602edit');
+    await frame_edit.waitForSelector('#platformCode');
+    await frame_edit.type('#platformCode','123456');
+    await frame_edit.type('#barCode','789');*/
 
     await page.waitFor(3000);
     await page.waitForSelector('iframe[name="panel10006602edit"]'); //新增订单界面
@@ -127,18 +95,8 @@ describe('管易', () => {
     await page.keyboard.press('Enter');
 
     await page.waitFor(3000);
-    await page.waitForSelector('span.x-tab-close-btn');
-    await page.click('span.x-tab-close-btn');  //关闭订单查询页面
+    await frame_so.waitForSelector('span.x-tab-close-btn');
+    await frame_so.click('span.x-tab-close-btn');
 
-
-  }, 300000)
-
-
-
-
-
-  afterAll(async () => {
-    // await page.tracing.stop()
-    await browser.disconnect()
-  })
-})
+    browser.disconnect();
+})();
